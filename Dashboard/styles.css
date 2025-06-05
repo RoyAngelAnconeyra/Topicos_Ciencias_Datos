@@ -1,0 +1,122 @@
+/* General */
+body {
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+#wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+#sidebar-wrapper {
+    min-width: 250px;
+    max-width: 250px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+#sidebar-wrapper.toggled {
+    margin-left: -250px;
+}
+
+.sidebar-heading {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: bold;
+}
+
+.list-group-item {
+    border: none;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* Chart Styles */
+#chart {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.line {
+    fill: none;
+    stroke-width: 2px;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 8px;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    pointer-events: none;
+    opacity: 0;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.hourly-tooltip {
+    position: absolute;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: auto;
+}
+
+.hourly-tooltip .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.hourly-tooltip .close-btn:hover {
+    color: #ff0000;
+}
+
+.axis-label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        position: fixed;
+        z-index: 1000;
+        margin-left: -250px;
+    }
+
+    #sidebar-wrapper.toggled {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        width: 100%;
+    }
+
+    .hourly-tooltip {
+        width: 90%;
+        left: 5% !important;
+        top: 10% !important;
+    }
+}
